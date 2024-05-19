@@ -1,10 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
+
+:root {
+  --color-beige: #fbebce;
+  --color-lg-beige: #f9f5e8;
+  --color-green: #003400;
+  --color-yellow: #ffe88e;
+}
+
 * {
   box-sizing: border-box;
 }
 
 html {
-  font-family: "Inter", sans-serif;
+  font-family: "Libre Baskerville", sans-serif;
   font-size: 12px;
+  color: var(--color-green);
 }
 
 body {
