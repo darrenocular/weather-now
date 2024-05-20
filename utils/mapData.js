@@ -3338,7 +3338,7 @@ const mapData = {
             ],
           ],
         },
-        properties: { PLN_AREA_N: "WESTERN WATER CATCHMENT & JALAN BAHAR" },
+        properties: { PLN_AREA_N: "WESTERN WATER CATCHMENT" },
       },
       {
         type: "Feature",

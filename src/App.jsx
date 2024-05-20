@@ -82,7 +82,11 @@ function App() {
           </select>
         </form>
       </div>
-      <Map weatherData={weatherData} weatherMetadata={weatherMetadata} />
+      <Map
+        weatherData={weatherData}
+        weatherMetadata={weatherMetadata}
+        setSelectedArea={setSelectedArea}
+      />
       <div className={styles.footer}>
         <p>
           Powered by the National Environment Agency (NEA)'s{" "}

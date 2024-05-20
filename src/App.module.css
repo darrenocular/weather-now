@@ -3,6 +3,10 @@
   padding: 16px 56px;
 }
 
+.header > p {
+  font-style: italic;
+}
+
 .info-panel {
   margin: 0;
 }
