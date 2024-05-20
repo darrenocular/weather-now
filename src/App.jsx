@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
 import styles from "./App.module.css";
 import Map from "./components/Map";
-import { computeAreas, getAreaForecast } from "../utils/util";
+import {
+  computeAreas,
+  getAreaForecast,
+  getForecastMetadata,
+} from "../utils/util";
 import "react-tooltip/dist/react-tooltip.css";
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
+  const [weatherMetadata, setWeatherMetadata] = useState(null);
   const areas = weatherData ? computeAreas(weatherData) : [];
   const [selectedArea, setSelectedArea] = useState("");
   const [areaForecast, setAreaForecast] = useState("");
@@ -33,6 +38,11 @@ function App() {
   useEffect(() => {
     getWeatherData();
   }, []);
+
+  // Set metadata when weather data is fetched
+  useEffect(() => {
+    if (weatherData) setWeatherMetadata(getForecastMetadata(weatherData));
+  }, [weatherData]);
 
   // Fetch area forecast when selectedArea changes
   useEffect(() => {
@@ -72,7 +82,7 @@ function App() {
           </select>
         </form>
       </div>
-      <Map weatherData={weatherData} />
+      <Map weatherData={weatherData} weatherMetadata={weatherMetadata} />
       <div className={styles.footer}>
         <p>
           Powered by the National Environment Agency (NEA)'s{" "}

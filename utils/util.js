@@ -4,7 +4,28 @@ export const computeAreas = (data) => {
   return areas;
 };
 
-// export const getForecastMetadata = (data) => {};
+export const getForecastMetadata = (data) => {
+  const options = {
+    weekday: "short",
+    month: "short",
+    year: "numeric",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+  };
+
+  const lastUpdate = new Date(
+    data["items"][0]["update_timestamp"]
+  ).toLocaleString("en-sg", options);
+  const periodStart = new Date(
+    data["items"][0]["valid_period"].start
+  ).toLocaleString("en-sg", options);
+  const periodEnd = new Date(
+    data["items"][0]["valid_period"].end
+  ).toLocaleString("en-sg", options);
+
+  return { lastUpdate, periodStart, periodEnd };
+};
 
 export const getAreaForecast = (area, data) => {
   return data["items"][0].forecasts.filter(
@@ -42,5 +63,3 @@ export const computeAreaFill = (area, data) => {
     return "var(--color-beige)";
   }
 };
-
-export const reformatDateString = (input) => {};

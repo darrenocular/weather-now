@@ -5,12 +5,21 @@ import styles from "./styles/Map.module.css";
 import mapData from "../../utils/mapData";
 import { reformatAreaString, computeAreaFill } from "../../utils/util";
 
-function Map({ weatherData }) {
+function Map({ weatherData, weatherMetadata }) {
   const [tooltipContent, setTooltipContent] = useState("");
 
   return (
     <>
-      <div data-tooltip-id="map-tooltip">
+      <div data-tooltip-id="map-tooltip" className={styles["map-container"]}>
+        <div className={styles.metadata}>
+          <p>
+            Forecast for <b>{weatherMetadata.periodStart}</b> to{" "}
+            <b>{weatherMetadata.periodEnd}</b>
+          </p>
+          <p>
+            Last update at <b>{weatherMetadata.lastUpdate}</b>
+          </p>
+        </div>
         <ComposableMap
           projection="geoMercator"
           className={styles.map}

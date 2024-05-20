@@ -1,5 +1,23 @@
+.map-container {
+  position: relative;
+}
+
+.metadata {
+  position: absolute;
+  right: 10%;
+  bottom: 5%;
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.metadata > p {
+  margin: 0;
+}
+
 .map {
-  width: 80vw;
+  width: 100vw;
   height: 64vh;
 }
 
