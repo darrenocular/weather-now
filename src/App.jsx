@@ -42,10 +42,10 @@ function App() {
   return (
     <>
       <h1>WeatherNow</h1>
-      {/* <Map /> */}
+      <Map />
       <form>
         <label htmlFor="area">Area</label>
-        <select name="area" onChange={handleAreaChange} value={selectedArea}>
+        <select id="area" onChange={handleAreaChange} value={selectedArea}>
           <option value="" disabled>
             Select an area
           </option>
