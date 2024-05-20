@@ -1,4 +1,4 @@
-.legends-container {
+.legend-container {
   display: flex;
   flex-direction: column;
   font-size: 10px;
@@ -12,19 +12,19 @@
   border: 2px solid var(--color-green);
 }
 
-.legends-container > p {
+.legend-container > p {
   font-weight: 700;
   font-size: 12px;
   text-align: left;
 }
 
-.legends-row {
+.legend-row {
   display: flex;
   justify-content: space-between;
   align-items: start;
 }
 
-.legends-col {
+.legend-col {
   width: 50%;
   display: flex;
   flex-direction: column;

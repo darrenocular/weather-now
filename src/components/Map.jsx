@@ -4,7 +4,7 @@ import { Tooltip } from "react-tooltip";
 import styles from "./styles/Map.module.css";
 import mapData from "../../utils/mapData";
 import { reformatAreaString, computeAreaFill } from "../../utils/util";
-import Legends from "./Legends";
+import Legend from "./Legend";
 
 function Map({ weatherData, weatherMetadata, selectedArea, setSelectedArea }) {
   const [tooltipContent, setTooltipContent] = useState("");
@@ -60,7 +60,7 @@ function Map({ weatherData, weatherMetadata, selectedArea, setSelectedArea }) {
             }
           </Geographies>
         </ComposableMap>
-        <Legends />
+        <Legend />
       </div>
       <Tooltip
         id="map-tooltip"

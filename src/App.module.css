@@ -16,7 +16,9 @@
 }
 
 .form-container {
-  text-align: right;
+  display: flex;
+  justify-content: end;
+  align-items: center;
   padding: 12px 56px;
 }
 
@@ -26,12 +28,31 @@
 
 .dropdown > select {
   padding: 4px 8px;
+  margin-right: 8px;
   font-family: "Libre Baskerville", serif;
   font-size: 12px;
   color: var(--color-green);
   border: 2px solid var(--color-green);
   border-radius: 4px;
   outline: none;
+}
+
+.location-btn {
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--color-green);
+  border-radius: 4px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-green);
+  color: var(--color-beige);
+}
+
+.location-btn:hover {
+  background-color: #005a00;
+  cursor: pointer;
 }
 
 .footer {

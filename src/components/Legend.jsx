@@ -1,12 +1,12 @@
 import React from "react";
-import styles from "./styles/Legends.module.css";
+import styles from "./styles/Legend.module.css";
 
-const Legends = () => {
+const Legend = () => {
   return (
-    <div className={styles["legends-container"]}>
-      <p>Legends</p>
-      <div className={styles["legends-row"]}>
-        <div className={styles["legends-col"]}>
+    <div className={styles["legend-container"]}>
+      <p>Legend</p>
+      <div className={styles["legend-row"]}>
+        <div className={styles["legend-col"]}>
           <p>
             <span className={`${styles.fill} ${styles.clear}`}></span> Clear
           </p>
@@ -23,7 +23,7 @@ const Legends = () => {
             <span className={`${styles.fill} ${styles.cloudy}`}></span> Cloudy
           </p>
         </div>
-        <div className={styles["legends-col"]}>
+        <div className={styles["legend-col"]}>
           <p>
             <span
               className={`${styles.fill} ${styles["light-showers"]}`}
@@ -51,4 +51,4 @@ const Legends = () => {
   );
 };
 
-export default Legends;
+export default Legend;

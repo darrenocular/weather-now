@@ -5,8 +5,11 @@ import {
   computeAreas,
   getAreaForecast,
   getForecastMetadata,
+  findClosestArea,
 } from "../utils/util";
-import "react-tooltip/dist/react-tooltip.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationArrow } from "@fortawesome/free-solid-svg-icons";
+import LoadingSpinner from "./components/LoadingSpinner";
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
@@ -14,6 +17,7 @@ function App() {
   const areas = weatherData ? computeAreas(weatherData) : [];
   const [selectedArea, setSelectedArea] = useState("");
   const [areaForecast, setAreaForecast] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const getWeatherData = async () => {
     try {
@@ -32,6 +36,32 @@ function App() {
 
   const handleAreaChange = (e) => {
     setSelectedArea(e.target.value);
+  };
+
+  const getUserLocation = (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    try {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, () => {
+          throw new Error("Unable to retrieve your location");
+        });
+      } else {
+        throw new Error("Geolocation not supported on this device");
+      }
+    } catch (error) {
+      console.error(error.message);
+      setIsLoading(false);
+    }
+  };
+
+  const success = (position) => {
+    const userLat = position.coords.latitude;
+    const userLon = position.coords.longitude;
+
+    const closestArea = findClosestArea(userLat, userLon, areas);
+    setSelectedArea(closestArea.name);
+    setIsLoading(false);
   };
 
   // Fetch weather data on page load
@@ -75,12 +105,19 @@ function App() {
               Select an area
             </option>
             {areas?.map((area) => (
-              <option value={area} key={area}>
-                {area}
+              <option value={area.name} key={area.name}>
+                {area.name}
               </option>
             ))}
           </select>
         </form>
+        <button className={styles["location-btn"]} onClick={getUserLocation}>
+          {isLoading ? (
+            <LoadingSpinner />
+          ) : (
+            <FontAwesomeIcon icon={faLocationArrow} />
+          )}
+        </button>
       </div>
       <Map
         weatherData={weatherData}
