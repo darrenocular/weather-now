@@ -16,6 +16,7 @@
   font-weight: 700;
   font-size: 12px;
   text-align: left;
+  font-family: "Raleway", sans-serif;
 }
 
 .legend-row {
@@ -31,9 +32,14 @@
   align-items: start;
 }
 
+.legend-col > p {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+}
+
 .fill {
   padding: 2px 8px;
-  margin-right: 4px;
+  margin-right: 8px;
 }
 
 .clear {

@@ -38,8 +38,7 @@ function App() {
     setSelectedArea(e.target.value);
   };
 
-  const getUserLocation = (e) => {
-    e.preventDefault();
+  const getUserLocation = () => {
     setIsLoading(true);
     try {
       if (navigator.geolocation) {
@@ -71,7 +70,10 @@ function App() {
 
   // Set metadata when weather data is fetched
   useEffect(() => {
-    if (weatherData) setWeatherMetadata(getForecastMetadata(weatherData));
+    if (weatherData) {
+      setWeatherMetadata(getForecastMetadata(weatherData));
+      getUserLocation();
+    }
   }, [weatherData]);
 
   // Fetch area forecast when selectedArea changes
@@ -91,10 +93,10 @@ function App() {
         </p>
       </div>
       {selectedArea ? (
-        <p className={styles["info-panel"]}>
-          The 2-hour weather forecast for <span>{selectedArea}</span> is{" "}
-          <span>{areaForecast}</span>.
-        </p>
+        <div className={styles["info-panel"]}>
+          <p>{selectedArea}</p>
+          <p>Forecast: {areaForecast}</p>
+        </div>
       ) : (
         ""
       )}

@@ -4,14 +4,26 @@
 }
 
 .header > p {
+  font-family: "Raleway", sans-serif;
   font-style: italic;
 }
 
 .info-panel {
-  margin: 0;
+  margin: 0 auto 16px auto;
+  background-color: var(--color-green);
+  color: var(--color-beige);
+  width: 480px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-family: "Raleway", sans-serif;
 }
 
-.info-panel > span {
+.info-panel > p {
+  margin: 4px 0;
+}
+
+.info-panel > p:first-child {
+  font-size: 16px;
   font-weight: 700;
 }
 
@@ -22,14 +34,10 @@
   padding: 12px 56px;
 }
 
-.dropdown > label {
-  margin-right: 8px;
-}
-
 .dropdown > select {
   padding: 4px 8px;
   margin-right: 8px;
-  font-family: "Libre Baskerville", serif;
+  font-family: "Raleway", sans-serif;
   font-size: 12px;
   color: var(--color-green);
   border: 2px solid var(--color-green);

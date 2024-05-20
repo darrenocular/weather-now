@@ -4,7 +4,7 @@ import styles from "./styles/Legend.module.css";
 const Legend = () => {
   return (
     <div className={styles["legend-container"]}>
-      <p>Legend</p>
+      <p>LEGEND</p>
       <div className={styles["legend-row"]}>
         <div className={styles["legend-col"]}>
           <p>
