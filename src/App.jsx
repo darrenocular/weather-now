@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "./App.module.css";
 import Map from "./components/Map";
 import { computeAreas, getAreaForecast } from "../utils/util";
+import "react-tooltip/dist/react-tooltip.css";
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
@@ -71,7 +72,7 @@ function App() {
           </select>
         </form>
       </div>
-      <Map />
+      <Map weatherData={weatherData} />
       <div className={styles.footer}>
         <p>
           Powered by the National Environment Agency (NEA)'s{" "}
