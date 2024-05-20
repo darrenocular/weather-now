@@ -1,0 +1,45 @@
+.header {
+  width: 100vw;
+  padding: 16px 56px;
+}
+
+.info-panel {
+  margin: 0;
+}
+
+.info-panel > span {
+  font-weight: 700;
+}
+
+.form-container {
+  text-align: right;
+  padding: 12px 56px;
+}
+
+.dropdown > label {
+  margin-right: 8px;
+}
+
+.dropdown > select {
+  padding: 4px 8px;
+  font-family: "Libre Baskerville", serif;
+  font-size: 12px;
+  color: var(--color-green);
+  border: 2px solid var(--color-green);
+  border-radius: 4px;
+  outline: none;
+}
+
+.footer {
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.footer a {
+  color: inherit;
+}
+
+.footer a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}

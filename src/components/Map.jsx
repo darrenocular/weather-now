@@ -9,12 +9,12 @@ function Map() {
       projection="geoMercator"
       className={styles.map}
       projectionConfig={{
-        scale: 90000,
+        scale: 98000,
         center: [103.85, 1.32],
       }}
-      fill="#f9f5e8"
+      fill="#fbebce"
       stroke="#003400"
-      stroke-width={3}
+      strokeWidth={3}
     >
       <Geographies geography={mapData.data}>
         {({ geographies }) =>

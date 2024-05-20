@@ -12,9 +12,10 @@
 }
 
 html {
-  font-family: "Libre Baskerville", sans-serif;
+  font-family: "Libre Baskerville", serif;
   font-size: 12px;
   color: var(--color-green);
+  background-color: var(--color-lg-beige);
 }
 
 body {

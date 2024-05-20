@@ -9,5 +9,5 @@ export const computeAreas = (data) => {
 export const getAreaForecast = (area, data) => {
   return data["items"][0].forecasts.filter(
     (forecast) => area === forecast.area
-  )[0].forecast;
+  )[0]?.forecast;
 };

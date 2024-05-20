@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./App.css";
+import styles from "./App.module.css";
 import Map from "./components/Map";
 import { computeAreas, getAreaForecast } from "../utils/util";
 
@@ -41,28 +41,49 @@ function App() {
 
   return (
     <>
-      <h1>WeatherNow</h1>
-      <Map />
-      <form>
-        <label htmlFor="area">Area</label>
-        <select id="area" onChange={handleAreaChange} value={selectedArea}>
-          <option value="" disabled>
-            Select an area
-          </option>
-          {areas?.map((area) => (
-            <option value={area} key={area}>
-              {area}
-            </option>
-          ))}
-        </select>
-      </form>
-      {selectedArea ? (
+      <div className={styles.header}>
+        <h1>WeatherNow</h1>
         <p>
-          The 2-hour weather forecast for {selectedArea} is {areaForecast}.
+          Click on any area of the map below or select an area from the dropdown
+          menu to get the 2-hour weather forecast for a particular location in
+          Singapore.
+        </p>
+      </div>
+      {selectedArea ? (
+        <p className={styles["info-panel"]}>
+          The 2-hour weather forecast for <span>{selectedArea}</span> is{" "}
+          <span>{areaForecast}</span>.
         </p>
       ) : (
         ""
       )}
+      <div className={styles["form-container"]}>
+        <form className={styles.dropdown}>
+          <select id="area" onChange={handleAreaChange} value={selectedArea}>
+            <option value="" disabled>
+              Select an area
+            </option>
+            {areas?.map((area) => (
+              <option value={area} key={area}>
+                {area}
+              </option>
+            ))}
+          </select>
+        </form>
+      </div>
+      <Map />
+      <div className={styles.footer}>
+        <p>
+          Powered by the National Environment Agency (NEA)'s{" "}
+          <a
+            href="https://www.nea.gov.sg/corporate-functions/weather#weather-forecast2hr"
+            target="blank"
+          >
+            2-hour weather forecast
+          </a>
+          .
+        </p>
+      </div>
     </>
   );
 }
