@@ -19,6 +19,7 @@
 .map {
   width: 100vw;
   height: 64vh;
+  margin-bottom: 48px;
 }
 
 .area {

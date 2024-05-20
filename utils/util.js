@@ -44,13 +44,13 @@ export const computeAreaFill = (area, data) => {
   const forecast = getAreaForecast(reformatAreaString(area), data);
 
   if (forecast.includes("Clear")) {
-    return "#00F800";
+    return "#00FEFF";
   } else if (forecast.includes("Fair")) {
-    return "#FEFF04";
+    return "#02EBEC";
   } else if (forecast.includes("Partly Cloudy")) {
-    return "#FFDE00";
+    return "#02BBC2";
   } else if (forecast.includes("Cloudy")) {
-    return "#FFC800";
+    return "#00999C";
   } else if (forecast.includes("Light Showers")) {
     return "#FFB200";
   } else if (forecast.includes("Showers")) {

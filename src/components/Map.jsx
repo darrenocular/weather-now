@@ -4,8 +4,9 @@ import { Tooltip } from "react-tooltip";
 import styles from "./styles/Map.module.css";
 import mapData from "../../utils/mapData";
 import { reformatAreaString, computeAreaFill } from "../../utils/util";
+import Legends from "./Legends";
 
-function Map({ weatherData, weatherMetadata, setSelectedArea }) {
+function Map({ weatherData, weatherMetadata, selectedArea, setSelectedArea }) {
   const [tooltipContent, setTooltipContent] = useState("");
 
   return (
@@ -35,6 +36,7 @@ function Map({ weatherData, weatherMetadata, setSelectedArea }) {
           <Geographies geography={mapData.data}>
             {({ geographies }) =>
               geographies.map((geo) => {
+                const area = reformatAreaString(geo.properties["PLN_AREA_N"]);
                 const fill = weatherData
                   ? computeAreaFill(geo.properties["PLN_AREA_N"], weatherData)
                   : "var(--color-beige)";
@@ -44,26 +46,21 @@ function Map({ weatherData, weatherMetadata, setSelectedArea }) {
                     key={geo.rsmKey}
                     geography={geo}
                     className={`anchor-area ${styles.area}`}
-                    fill={fill}
+                    fill={selectedArea === area ? "var(--color-yellow)" : fill}
                     onMouseEnter={() => {
-                      setTooltipContent(
-                        `${reformatAreaString(geo.properties["PLN_AREA_N"])}`
-                      );
+                      setTooltipContent(`${area}`);
                     }}
                     onMouseLeave={() => {
                       setTooltipContent("");
                     }}
-                    onClick={() =>
-                      setSelectedArea(
-                        reformatAreaString(geo.properties["PLN_AREA_N"])
-                      )
-                    }
+                    onClick={() => setSelectedArea(area)}
                   />
                 );
               })
             }
           </Geographies>
         </ComposableMap>
+        <Legends />
       </div>
       <Tooltip
         id="map-tooltip"

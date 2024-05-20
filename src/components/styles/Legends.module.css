@@ -1,0 +1,69 @@
+.legends-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  width: 320px;
+  height: 184px;
+  background-color: white;
+  padding: 4px 16px;
+  position: absolute;
+  right: 10%;
+  bottom: 12%;
+  border: 2px solid var(--color-green);
+}
+
+.legends-container > p {
+  font-weight: 700;
+  font-size: 12px;
+  text-align: left;
+}
+
+.legends-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.legends-col {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.fill {
+  padding: 2px 8px;
+  margin-right: 4px;
+}
+
+.clear {
+  background-color: #00feff;
+}
+
+.fair {
+  background-color: #02ebec;
+}
+
+.partly-cloudy {
+  background-color: #02bbc2;
+}
+
+.cloudy {
+  background-color: #00999c;
+}
+
+.light-showers {
+  background-color: #ffb200;
+}
+
+.showers {
+  background-color: #ffa600;
+}
+
+.heavy-showers {
+  background-color: #fe8a00;
+}
+
+.thundery-showers {
+  background-color: #ff4702;
+}

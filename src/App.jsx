@@ -85,6 +85,7 @@ function App() {
       <Map
         weatherData={weatherData}
         weatherMetadata={weatherMetadata}
+        selectedArea={selectedArea}
         setSelectedArea={setSelectedArea}
       />
       <div className={styles.footer}>
