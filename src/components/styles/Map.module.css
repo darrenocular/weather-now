@@ -1,5 +1,10 @@
 .map-container {
   position: relative;
+  overflow-x: auto;
+}
+
+.map-container rect {
+  display: none;
 }
 
 .metadata {
@@ -17,7 +22,7 @@
 }
 
 .map {
-  width: 100vw;
+  width: 90vw;
   height: 64vh;
   margin-bottom: 48px;
 }

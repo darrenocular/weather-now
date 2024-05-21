@@ -1,5 +1,10 @@
 import React, { useState, memo } from "react";
-import { ComposableMap, Geographies, Geography } from "react-simple-maps";
+import {
+  ComposableMap,
+  Geographies,
+  Geography,
+  ZoomableGroup,
+} from "react-simple-maps";
 import { Tooltip } from "react-tooltip";
 import styles from "./styles/Map.module.css";
 import mapData from "../../utils/mapData";
@@ -12,6 +17,55 @@ function Map({ weatherData, weatherMetadata, selectedArea, setSelectedArea }) {
   return (
     <>
       <div data-tooltip-id="map-tooltip" className={styles["map-container"]}>
+        <ComposableMap
+          projection="geoMercator"
+          className={styles.map}
+          projectionConfig={{
+            scale: 92000,
+            center: [103.85, 1.32],
+          }}
+          stroke="#003400"
+          strokeWidth={3}
+        >
+          <ZoomableGroup
+            center={[103.85, 1.32]}
+            maxZoom={1.25}
+            translateExtent={[
+              [-400, -240],
+              [960, 640],
+            ]}
+          >
+            <Geographies geography={mapData.data}>
+              {({ geographies }) =>
+                geographies.map((geo) => {
+                  const area = reformatAreaString(geo.properties["PLN_AREA_N"]);
+                  const fill = weatherData
+                    ? computeAreaFill(geo.properties["PLN_AREA_N"], weatherData)
+                    : "var(--color-beige)";
+
+                  return (
+                    <Geography
+                      key={geo.rsmKey}
+                      geography={geo}
+                      className={`anchor-area ${styles.area}`}
+                      fill={
+                        selectedArea === area ? "var(--color-yellow)" : fill
+                      }
+                      onMouseEnter={() => {
+                        setTooltipContent(`${area}`);
+                      }}
+                      onMouseLeave={() => {
+                        setTooltipContent("");
+                      }}
+                      onClick={() => setSelectedArea(area)}
+                    />
+                  );
+                })
+              }
+            </Geographies>
+          </ZoomableGroup>
+        </ComposableMap>
+        <Legend />
         {weatherMetadata && (
           <div className={styles.metadata}>
             <p>
@@ -23,44 +77,6 @@ function Map({ weatherData, weatherMetadata, selectedArea, setSelectedArea }) {
             </p>
           </div>
         )}
-        <ComposableMap
-          projection="geoMercator"
-          className={styles.map}
-          projectionConfig={{
-            scale: 98000,
-            center: [103.85, 1.32],
-          }}
-          stroke="#003400"
-          strokeWidth={3}
-        >
-          <Geographies geography={mapData.data}>
-            {({ geographies }) =>
-              geographies.map((geo) => {
-                const area = reformatAreaString(geo.properties["PLN_AREA_N"]);
-                const fill = weatherData
-                  ? computeAreaFill(geo.properties["PLN_AREA_N"], weatherData)
-                  : "var(--color-beige)";
-
-                return (
-                  <Geography
-                    key={geo.rsmKey}
-                    geography={geo}
-                    className={`anchor-area ${styles.area}`}
-                    fill={selectedArea === area ? "var(--color-yellow)" : fill}
-                    onMouseEnter={() => {
-                      setTooltipContent(`${area}`);
-                    }}
-                    onMouseLeave={() => {
-                      setTooltipContent("");
-                    }}
-                    onClick={() => setSelectedArea(area)}
-                  />
-                );
-              })
-            }
-          </Geographies>
-        </ComposableMap>
-        <Legend />
       </div>
       <Tooltip
         id="map-tooltip"
