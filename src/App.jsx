@@ -8,7 +8,10 @@ import {
   findClosestArea,
 } from "../utils/util";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationArrow } from "@fortawesome/free-solid-svg-icons";
+import {
+  faLocationArrow,
+  faArrowsRotate,
+} from "@fortawesome/free-solid-svg-icons";
 import LoadingSpinner from "./components/LoadingSpinner";
 
 function App() {
@@ -72,7 +75,6 @@ function App() {
   useEffect(() => {
     if (weatherData) {
       setWeatherMetadata(getForecastMetadata(weatherData));
-      getUserLocation();
     }
   }, [weatherData]);
 
@@ -119,6 +121,9 @@ function App() {
           ) : (
             <FontAwesomeIcon icon={faLocationArrow} />
           )}
+        </button>
+        <button className={styles["refresh-btn"]} onClick={getWeatherData}>
+          <FontAwesomeIcon icon={faArrowsRotate} />
         </button>
       </div>
       <Map

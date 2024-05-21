@@ -1,3 +1,4 @@
+/* HEADER */
 .header {
   width: 100vw;
   padding: 16px 56px;
@@ -8,6 +9,7 @@
   font-style: italic;
 }
 
+/* INFO PANEL */
 .info-panel {
   margin: 0 auto 16px auto;
   background-color: var(--color-green);
@@ -27,6 +29,7 @@
   font-weight: 700;
 }
 
+/* DROPDOWN FORM */
 .form-container {
   display: flex;
   justify-content: end;
@@ -45,17 +48,23 @@
   outline: none;
 }
 
-.location-btn {
+/* BUTTONS */
+.location-btn,
+.refresh-btn {
   width: 28px;
   height: 28px;
-  border: 2px solid var(--color-green);
   border-radius: 4px;
   font-size: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 2px solid var(--color-green);
+}
+
+.location-btn {
   background-color: var(--color-green);
   color: var(--color-beige);
+  margin-right: 8px;
 }
 
 .location-btn:hover {
@@ -63,6 +72,17 @@
   cursor: pointer;
 }
 
+.refresh-btn {
+  background-color: var(--color-yellow);
+  color: var(--color-green);
+}
+
+.refresh-btn:hover {
+  background-color: var(--color-beige);
+  cursor: pointer;
+}
+
+/* FOOTER */
 .footer {
   font-size: 10px;
   font-weight: 400;
