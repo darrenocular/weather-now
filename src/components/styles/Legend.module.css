@@ -73,3 +73,36 @@
 .thundery-showers {
   background-color: #ff4702;
 }
+
+/* MEDIA QUERIES */
+@media (max-width: 800px) {
+  .legend-container {
+    position: inherit;
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 400px) {
+  .legend-container {
+    justify-content: start;
+    align-items: center;
+    width: 200px;
+    height: 220px;
+    margin-bottom: 16px;
+  }
+
+  .legend-row {
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    width: 100%;
+  }
+
+  .legend-col {
+    width: 80%;
+  }
+
+  .legend-col > p {
+    margin: 4px;
+  }
+}
