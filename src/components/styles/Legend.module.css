@@ -82,7 +82,7 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 420px) {
   .legend-container {
     justify-content: start;
     align-items: center;
