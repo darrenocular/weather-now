@@ -59,7 +59,7 @@
 }
 
 .light-showers {
-  background-color: #ffb200;
+  background-color: #ffc53e;
 }
 
 .showers {
@@ -99,7 +99,7 @@
   }
 
   .legend-col {
-    width: 80%;
+    width: 100%;
   }
 
   .legend-col > p {

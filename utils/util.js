@@ -57,16 +57,13 @@ export const computeAreaFill = (area, data) => {
     return "#02BBC2";
   } else if (forecast.includes("Cloudy")) {
     return "#00999C";
-  } else if (forecast.includes("Light Showers")) {
-    return "#FFB200";
-  } else if (forecast.includes("Heavy Showers")) {
+  } else if (forecast.includes("Light")) {
+    return "#ffc53e";
+  } else if (forecast.includes("Heavy")) {
     return "#FE8A00";
-  } else if (forecast.includes("Thundery Showers")) {
+  } else if (forecast.includes("Thundery")) {
     return "#FF4702";
-  } else if (
-    forecast.includes("Showers") ||
-    forecast.includes("Moderate Rain")
-  ) {
+  } else if (forecast.includes("Showers") || forecast.includes("Moderate")) {
     return "#FFA600";
   } else {
     return "var(--color-beige)";

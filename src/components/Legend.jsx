@@ -28,17 +28,17 @@ const Legend = () => {
             <span
               className={`${styles.fill} ${styles["light-showers"]}`}
             ></span>{" "}
-            Light Showers
+            Light Showers/Rain
           </p>
           <p>
             <span className={`${styles.fill} ${styles.showers}`}></span>{" "}
-            Showers/Moderate Rain
+            Moderate Showers/Rain
           </p>
           <p>
             <span
               className={`${styles.fill} ${styles["heavy-showers"]}`}
             ></span>{" "}
-            Heavy Showers
+            Heavy Showers/Rain
           </p>
           <p>
             <span
